@@ -1,0 +1,19 @@
+table{
+    border-style:solid;
+}
+th, td, caption{
+    border-style:solid;
+}
+th{
+	font-weight: normal;
+}
+.outer-content{
+	background-color: pink;
+	width: 75%;
+	margin-top: 20px;
+}
+.inner-content{
+	background-color: blue;
+	width: 75%;
+	margin: auto;
+}
