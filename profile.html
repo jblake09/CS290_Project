@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+ <link rel="stylesheet" href="style.css" type="text/css">
   <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
  </head>
  <body>
@@ -25,18 +26,43 @@
 		<li class="active"><a href="#">PROFILE<span class="sr-only">(current)</span></a></li>
 		<li><a href="contact.html">CONTACT ME</a></li>
 	</div>
-<div id="mapid" style="width: 600px; height: 400px;"></div>
-	<script>
-
-	var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1IjoiamJsYWtlMTciLCJhIjoiY2o5dDFoeGk4NmsxczJ5bGdqemtiZjZsZSJ9.WGYSy4EQR42Q-CUFHrBu8Q'
-}).addTo(mymap);
-</script>
+</nav>
+<div class="container-fluid text-center">
+	<h2> My Resume Map </h2>
+	<div id="mapid"></div>
+		<script>
+			var mec = L.marker([29.346441, -99.157321])//.addTo(mymap);
+			var harkand = L.marker([29.788354, -95.667379])//.addTo(mymap);
+			var fugro = L.marker([29.714634, -95.49887])//.addTo(mymap);
+			var nra = L.marker([27.800608, -97.394717])//.addTo(mymap);
+			var workExperiance = L.layerGroup([mec, harkand, fugro, nra]);
+			
+			var tamucc = L.marker([27.714528, -97.328815])
+			var osu = L.marker([29.513381, -98.659683])
+			var education = L.layerGroup([tamucc, osu]);
+			
+			var mymap = L.map(('mapid'), {
+				center: [39.18, -98.54],
+				zoom: 5,
+				layers: [workExperiance, education]
+				});
+				//.setView([39.18, -98.54], 5);
+			
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			maxZoom: 18,
+			id: 'mapbox.streets',
+			accessToken: 'pk.eyJ1IjoiamJsYWtlMTciLCJhIjoiY2o5dDFoeGk4NmsxczJ5bGdqemtiZjZsZSJ9.WGYSy4EQR42Q-CUFHrBu8Q'
+			}).addTo(mymap);
+			
+			var overlayMaps = {
+				"Work Experience": workExperiance,
+				"Education": education};
+			
+			L.control.layers(overlayMaps).addTo(mymap);
+			
+		</script>
+	</div>
 </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
