@@ -28,23 +28,37 @@
 	</div>
 </nav>
 <div class="container-fluid text-center">
-	<h2> My Resume Map </h2>
+	<div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-md-6">
+          <h1>Professional Profile</h1>
+          <p>We are engaged in all forms of document digitization, image scan & data capture. From microfilm / microfiche and aperture card scanning, to automated invoice processing, through to large format scanning and everything in between. We process well over a million per pages a month on site or in our client’s offices. We have decades of experience, a highly knowledgeable staff and scalable capacity. With clients from virtually every industry, we are used to tight turnarounds and can provide the software, hardware, and manpower to assist with backfile conversion or document digitization, freeing you to concentrate on business.</p>
+      </div>
+
+      <div class="col-md-6 p-r">
+        <img src="GIS_People_Key_Visual_11_LR.jpg" class="img-responsive img-full">
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<div class="container-fluid text-center">
+	<h2> My Work History </h2>
 	<div id="mapid"></div>
 		<script>
-			var mec = L.marker([29.346441, -99.157321])//.addTo(mymap);
+		/*
+			var mec = L.marker([29.346441, -99.157321]);
 			var harkand = L.marker([29.788354, -95.667379])//.addTo(mymap);
 			var fugro = L.marker([29.714634, -95.49887])//.addTo(mymap);
 			var nra = L.marker([27.800608, -97.394717])//.addTo(mymap);
-			var workExperiance = L.layerGroup([mec, harkand, fugro, nra]);
-			
-			var tamucc = L.marker([27.714528, -97.328815])
-			var osu = L.marker([29.513381, -98.659683])
-			var education = L.layerGroup([tamucc, osu]);
-			
+			//var workExperiance = L.layerGroup([mec, harkand, fugro, nra]);
+			*/
 			var mymap = L.map(('mapid'), {
-				center: [39.18, -98.54],
-				zoom: 5,
-				layers: [workExperiance, education]
+				center: [ 28.83, -97.229],
+				zoom: 8
 				});
 				//.setView([39.18, -98.54], 5);
 			
@@ -55,12 +69,15 @@
 			accessToken: 'pk.eyJ1IjoiamJsYWtlMTciLCJhIjoiY2o5dDFoeGk4NmsxczJ5bGdqemtiZjZsZSJ9.WGYSy4EQR42Q-CUFHrBu8Q'
 			}).addTo(mymap);
 			
-			var overlayMaps = {
-				"Work Experience": workExperiance,
-				"Education": education};
+			var mec = L.marker([29.346441, -99.157321]).addTo(mymap);
+			var harkand = L.marker([29.788354, -95.667379]).addTo(mymap);
+			var fugro = L.marker([29.714634, -95.49887]).addTo(mymap);
+			var nra = L.marker([27.800608, -97.394717]).addTo(mymap);
 			
-			L.control.layers(overlayMaps).addTo(mymap);
-			
+			mec.bindPopup("<b>Medina Electric Cooperative</b><br>Nov. 2015 - Current<br><ul><li>Coordinate and lead GIS initiatives while providing direction to GIS staff.</li><li>Develop and maintain Enterprise GIS database.</li><li>Increased department efficiency by automating repetitive tasks using python scripts.</li><li>Created and trained employees on new geospatial data workflow for utility easement data creation, presentation and storage.</li></ul>");
+			harkand.bindPopup("<b>Harkand Gulf Services</b><br>Jun. 2014 – Oct. 2015<br><ul><li>Coordinated vessel wide survey operations during 0000-1200 shift.</li><li>Completed vessel mobilization of surface/sub-sea positioning equipment and survey networks aboard the Siem Swordfish and Siem Spearfish.</li><li>Used python to automate the process of obtaining well Gulf of Mexico well data nightly.</li><li>Took on the additional responsibilities of data analyst until a replacement could be found then tasked with training replacement.</li></ul>");
+			fugro.bindPopup("<b>Fugro Chance</b><br>Jun. 2013 – Jun. 2014<br><ul><li>Operated, maintained, and calibrated sub-sea/surface positioning equipment and software for offshore oil and gas operations.</li><li>Performed database geodesy confirmations and other system integrity checks.</li><li>Troubleshot system malfunctions or bugs in a safe and timely manner.</li><li>Collaborated with remotely operated vehicle pilots, vessel bridge officers, and other vessel/rigs for safe and efficient vessel moves.</li></ul>");
+			nra.bindPopup("<b>Nueces River Authority</b><br>Jun. 2012 – May 2013<br><ul><li>Created a geospatial database for the river authority’s jurisdiction.</li><li>Led all GIS projects and worked as a member of an interdepartmental team to complete special projects.</li><li>Performed watershed delineations for all river assessment units within the river authority’s jurisdiction based off of USGS NED data.</li></ul>");
 		</script>
 	</div>
 </div>
