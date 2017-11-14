@@ -3,13 +3,34 @@
     width: 50%;
     border: 3px solid green;
     padding: 10px;
-	width: 1200px; 
+	width: 1000px; 
 	height: 800px;
 }
 .p-r
 {
-	width: 400px; 
-	height: 400px;
-	left: 0;
+	width: 250px; 
+	height: 250px;
+	left: 200px;
 	bottom: 0;
+	
 }
+
+.table {
+    border-radius: 5px;
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+	table-layout: fixed;
+	text-align: center; 
+}
+
+.table th{
+	text-align: center; 
+	font-weight:normal
+}
+
+
+
+
+
+
